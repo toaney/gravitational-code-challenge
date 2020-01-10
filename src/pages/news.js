@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import firebase from '../firebase.js';
 import axios from 'axios';
 import Article from '../components/article';
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const getTimestamp = (timestamp) => {
     const currentTime = Math.round((new Date()).getTime() / 1000);
@@ -94,7 +95,7 @@ const Article = ({item, index}) => {
             <p>{article.score} points</p>
             <p>by {article.by}</p>
             <p>{getTimestamp(article.time)}</p>
-            <p>{comments.length} comments</p>
+            <Link to={`/item/${item}`}><p>{comments.length} comments</p></Link>
         </div>
     )
 }
