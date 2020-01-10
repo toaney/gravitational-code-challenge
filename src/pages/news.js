@@ -3,22 +3,8 @@ import firebase from '../firebase.js';
 import axios from 'axios';
 import Article from '../components/article';
 
-
 const News = () => {
-    // const articles = getArticles();
-        // function getArticles() {
-            const [articleList, setArticleList ] = useState([]);
-            
-            // useEffect(() => {
-            //     //run code
-            //     firebase
-            //         .firestore()
-            //         .collection()
-            //         debugger
-            // }, []);
-        
-            // return articleList
-        // }
+    const [articleList, setArticleList ] = useState([]);
 
     const get_assets = () => {
         axios
