@@ -1,2 +1,11 @@
 @import "./abstracts/variables.scss";
 
+body {
+    margin-top: 0px;
+}
+
+.page-content {
+    background-color: $gray-light;
+    width: 85%;
+    margin: 0px auto;
+}

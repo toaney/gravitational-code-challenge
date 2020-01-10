@@ -16,6 +16,7 @@ import 'firebase/firestore';
   firebase.initializeApp({
     authDomain: "hacker-news.firebaseio.com",
     databaseURL: "https://hacker-news.firebaseio.com",
+    projectId: "hacker-news-clone-b62e8"
   });
 
 export default firebase
