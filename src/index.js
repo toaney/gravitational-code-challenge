@@ -13,8 +13,8 @@ ReactDOM.render(
         <div className="page-content">
             <Header />
             <Route exact path="/item" component={ Item } />
-            <Route path="/item/:id" component={ Item } />
-            <Route exact path="/news" component={ News } />        
+            <Route path="/item/:id" component={ Item } /> 
+            <Route exact path="/:id" component={ News } />        
             <Route exact path="/" component={ News } />
         </div>
     </Router>,

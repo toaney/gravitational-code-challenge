@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import getTimestamp from '../getTimestamp';
 
 const Comment = ( { commentId } ) => {
-    const [ commentList, setCommentList ] = useState([])
+    const [ commentList, setCommentList ] = useState([]);
+    const [ currentComment, setCurrentComment ] = useState({});
 
     const getComments = ( input ) => {
         axios
         .get(`https://hacker-news.firebaseio.com/v0/item/${ input }.json`)
         .then(res => {
-            console.log(res.data)
+            setCurrentComment(res.data)
             setCommentList(res.data.kids)
         })
         .catch((err) => {
@@ -29,28 +31,19 @@ const Comment = ( { commentId } ) => {
 
     return (
         <div style={{"marginLeft": "25px", "marginTop": "10px"}}>
-            <div>{commentId}</div>
+            {/* <div>{currentComment.text}</div> */}
+
+            <div>
+                <span>{currentComment.by} </span>
+                <span>{getTimestamp(currentComment.time)}</span>
+            </div>
+            <div>
+                {currentComment.text}
+            </div>
             {nestedComments}
         </div>
     )
 
-
-    // return(
-    //     <React.Fragment>
-    //         {!commentList?
-    //             return(
-    //                 <h5>{commentId}</h5>
-    //             )
-    //         :
-    //             return(
-    //                 commentList.map((item) => (
-    //                     <Comment />
-    //                 ))
-    //             )
-    //         }
-
-    //     </React.Fragment>
-    // )
 }
 
 export default Comment;
