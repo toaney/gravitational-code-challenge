@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Article from '../components/article';
+// import ArticleList from '../components/articleList';
 // import MoreResults from '../components/moreResults';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';

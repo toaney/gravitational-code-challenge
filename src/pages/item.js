@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Comment from '../components/comment';
+import AddComment from '../components/addComment';
 
 const getTimestamp = (timestamp) => {
     const currentTime = Math.round((new Date()).getTime() / 1000);
@@ -111,6 +112,8 @@ const Item = () => {
             <p>{article.score} points</p>
             <p>by {article.by}</p>
             <p>{getTimestamp(article.time)}</p>
+
+            <AddComment />
 
             {comments.map( (commentId)=> (
                 <div>
