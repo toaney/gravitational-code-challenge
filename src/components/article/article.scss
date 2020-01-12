@@ -1,0 +1,64 @@
+.article-preview {
+    margin-top: 10px;
+}
+
+.article-heading {
+    display: flex;
+}
+
+.article-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.article-index {
+    color: #828282;
+    min-width: 22px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.article-upvote-arrow {
+    color: #828282;
+    line-height: 19px;
+    font-size: 9.3px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.article-upvote-arrow:hover {
+    cursor: pointer;
+}
+
+.article-title {
+    font-weight: 400;
+}
+
+.article-url {
+    // overflow: hidden;
+    // max-width: 75ch;
+    color: #828282;
+    font-size: 10.3px;
+    margin-left: 3px;
+}
+
+
+
+
+
+.article-stats {
+    display: flex;
+    flex-direction: row;
+    margin-left: 33px;
+    margin-bottom: 5px;
+    font-size: 10.3px;
+    line-height: 12px;
+}
+
+.article-stats-item {
+    color: #828282;
+    font-size: 9.3px;
+    line-height: 12px;
+    margin-left: 2px;
+    margin-right: 2px;
+}

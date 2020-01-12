@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Comment from '../components/comment';
 import AddComment from '../components/addComment';
+import abridgeUrl from '../components/abridgeUrl';
 
 const getTimestamp = (timestamp) => {
     const currentTime = Math.round((new Date()).getTime() / 1000);
@@ -104,24 +105,55 @@ const Item = () => {
 
 
     return (
-        <div>
-            <h2>Item Page</h2>
-            <p>{ id }</p>
-            <p><a href={article.url}>{article.title}</a></p>
-            <p><a href={article.url}>{article.url}</a></p>
-            <p>{article.score} points</p>
-            <p>by {article.by}</p>
-            <p>{getTimestamp(article.time)}</p>
+        // <article className="article-preview">
+        //     <div className="article-links">
+        //         <span className="article-index">{index}.</span>
+        //         <span className="article-upvote-arrow">&#9650;</span>
+        //         <span>
+        //             <a href={article.url} className="article-title">{article.title}</a>
+        //             <a href={article.url} className="article-url article-link">({article.url})</a>
+        //         </span>
+
+        //     </div>
+        //     <div className="article-stats">
+        //         <span className="article-stats-item">{article.score} points</span>
+        //         <span className="article-stats-item article-link">by {article.by}</span>
+        //         <Link to={`/item/${item}`}><span className="article-stats-item article-link">{getTimestamp(article.time)}</span></Link><span className="article-stats-item">|</span>
+        //         <span className="article-stats-item article-link">hide</span><span className="article-stats-item">|</span>
+        //         <Link to={`/item/${item}`}><span className="article-stats-item article-link">{comments? comments.length : 0} comments</span></Link>
+        //     </div>
+        // </article>
+
+        <main className="item-content">
+            <div className="item-heading">
+                <span className="item-upvote-arrow">&#9650;</span>
+                <span className="item-title-container">
+                    <a href={article.url} className="item-title">{article.title}</a>
+                    <a href={article.url} className="item-url">({abridgeUrl(article.url)})</a>
+                </span>
+            </div>
+            <div className="item-stats">
+                <span className="item-stats-item">{article.score} points</span>
+                <span className="item-stats-item item-link">by {article.by}</span>
+                <span className="item-stats-item item-link">{getTimestamp(article.time)}</span><span className="article-stats-item">|</span>
+                <span className="item-stats-item item-link">hide</span><span className="article-stats-item">|</span>
+                <span className="item-stats-item item-link">past</span><span className="article-stats-item">|</span>
+                <span className="item-stats-item item-link">web</span><span className="article-stats-item">|</span>
+                <span className="item-stats-item item-link">favorite</span><span className="article-stats-item">|</span>
+                <span className="article-stats-item article-link">{article.kids? article.kids.length : 0} comments</span>
+            </div>
 
             <AddComment />
 
-            {comments.map( (commentId)=> (
-                <div>
-                    {/* <p>{commentId}</p> */}
-                    <Comment commentId={commentId}/>
-                </div>
-            ))}
-        </div>
+            <div className="comment-container">
+                {comments.map( (commentId)=> (
+                    <div>
+                        {/* <p>{commentId}</p> */}
+                        <Comment commentId={commentId}/>
+                    </div>
+                ))}
+            </div>
+        </main>
     )
 }
 

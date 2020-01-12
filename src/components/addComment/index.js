@@ -1,11 +1,13 @@
 import React from 'react';
+import './addComment.scss';
 
 const AddComment = () => {
     return (
-        <React.Fragment>
-            <textarea rows="6" cols="50"></textarea>
-            <button>Add Comment</button>
-        </React.Fragment>
+        <section className="add-comment-container">
+            <textarea className="add-comment-textarea" rows="7" cols="80"></textarea>
+            <br />
+            <button className="add-comment-button" >Add Comment</button>
+        </section>
     )
 }
 

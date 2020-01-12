@@ -30,13 +30,7 @@ const News = () => {
         }
     }
 
-    //results range
-    // let endIndex = page * 30;
-    // let startIndex = endIndex - 29;
-
     const get_assets = () => {
-
-
         axios
         .get("https://hacker-news.firebaseio.com/v0/topstories.json")
         .then(res => {
@@ -74,15 +68,8 @@ const News = () => {
 
     return(
         <React.Fragment>
-            <h2>News Page</h2>
             <ArticleList list={articleList} start={startIndex}/>
-            {/* {articleList.slice(startIndex, startIndex + 30).map( (item, index) => (
-                <Article 
-                    item= {item}
-                    index={index + startIndex}
-                />
-            ))} */}
-            <Link to={`/${isNaN(page)? 2 : page + 1}`}>More</Link>
+            <Link className="more-articles-link" to={`/${isNaN(page)? 2 : page + 1}`}>More</Link>
         </React.Fragment>
     )
 }
