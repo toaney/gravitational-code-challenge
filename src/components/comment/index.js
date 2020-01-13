@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import getTimestamp from '../getTimestamp';
-// import './comment.scss';
 
 const Comment = ( { commentId } ) => {
     const [ commentList, setCommentList ] = useState([]);
@@ -20,12 +19,11 @@ const Comment = ( { commentId } ) => {
     };
 
     useEffect(() => {
-        //run code
         getComments(commentId);
-    }, []);
+    }, [commentId]);
 
-    const nestedComments = (commentList || []).map( comment => {
-        return <Comment key={comment.id} commentId={comment} />
+    const nestedComments = (commentList || []).map( (comment, index) => {
+        return <Comment key={index} commentId={comment} />
     })
 
     return (

@@ -9,7 +9,6 @@ const MoreResults = () => {
 
     return (
         <Link to={`/${isNaN(page)? 2 : page + 1}`}>More</Link>
-        // <Link to={`/2`}>More</Link>
     )
 
 }

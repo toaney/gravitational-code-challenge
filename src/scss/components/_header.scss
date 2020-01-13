@@ -62,10 +62,14 @@ aside {
     margin-right: 3px;
 }
 
+.header-nav-link:hover {
+    cursor: pointer;
+}
+
 .header-login-link {
     margin-right: 4px;
 }
 
-.header-login-container {
-
+.header-login-link:hover {
+    cursor: pointer;
 }

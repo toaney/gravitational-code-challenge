@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Comment from '../components/comment';
 import AddComment from '../components/addComment';
 import abridgeUrl from '../components/abridgeUrl';
@@ -76,20 +75,6 @@ const Item = () => {
         axios
         .get(`https://hacker-news.firebaseio.com/v0/item/${ id }.json`)
         .then(res => {
-            console.log(res.data)
-            setArticle(res.data)
-            setComments(res.data.kids)
-        })
-        .catch((err) => {
-            console.log(err)
-        });
-    };
-
-    const getComments = ( cmt ) => {
-        axios
-        .get(`https://hacker-news.firebaseio.com/v0/item/${ cmt }.json`)
-        .then(res => {
-            console.log(res.data)
             setArticle(res.data)
             setComments(res.data.kids)
         })
@@ -99,31 +84,11 @@ const Item = () => {
     };
 
     useEffect(() => {
-        //run code
         getArticle();
     }, []);
 
 
     return (
-        // <article className="article-preview">
-        //     <div className="article-links">
-        //         <span className="article-index">{index}.</span>
-        //         <span className="article-upvote-arrow">&#9650;</span>
-        //         <span>
-        //             <a href={article.url} className="article-title">{article.title}</a>
-        //             <a href={article.url} className="article-url article-link">({article.url})</a>
-        //         </span>
-
-        //     </div>
-        //     <div className="article-stats">
-        //         <span className="article-stats-item">{article.score} points</span>
-        //         <span className="article-stats-item article-link">by {article.by}</span>
-        //         <Link to={`/item/${item}`}><span className="article-stats-item article-link">{getTimestamp(article.time)}</span></Link><span className="article-stats-item">|</span>
-        //         <span className="article-stats-item article-link">hide</span><span className="article-stats-item">|</span>
-        //         <Link to={`/item/${item}`}><span className="article-stats-item article-link">{comments? comments.length : 0} comments</span></Link>
-        //     </div>
-        // </article>
-
         <main className="item-content">
             <div className="item-heading">
                 <span className="item-upvote-arrow">&#9650;</span>
@@ -147,8 +112,7 @@ const Item = () => {
 
             <div className="comment-container">
                 {comments.map( (commentId)=> (
-                    <div>
-                        {/* <p>{commentId}</p> */}
+                    <div key={commentId}>
                         <Comment commentId={commentId}/>
                     </div>
                 ))}

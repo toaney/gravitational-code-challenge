@@ -1,27 +1,26 @@
 import React from 'react';
-// import './header.scss';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
     return(
         <header>
             <div className="nav-container">
-                <img className="header-logo" src={require("../../assets/images/hacker_news_logo.gif")} alt="hacker news image" />
+                <img className="header-logo" src={require("../../assets/images/hacker_news_logo.gif")} alt="hacker news logo" />
                 <nav>
                     <Link to="/" alt="home"><span className="header-sitename">Hacker News</span></Link>
                     <span className="header-nav-list">
-                        <a className="header-nav-link" href="#" alt="new">new</a><span>|</span>
-                        <a className="header-nav-link" href="#" alt="past">past</a><span>|</span>
-                        <a className="header-nav-link" href="#" alt="comments">comments</a><span>|</span>
-                        <a className="header-nav-link" href="#" alt="ask">ask</a><span>|</span>
-                        <a className="header-nav-link" href="#" alt="show">show</a><span>|</span>
-                        <a className="header-nav-link" href="#" alt="jobs">jobs</a><span>|</span>
-                        <a className="header-nav-link" href="#" alt="submit">submit</a>
+                        <span className="header-nav-link">new</span><span>|</span>
+                        <span className="header-nav-link">past</span><span>|</span>
+                        <span className="header-nav-link">comments</span><span>|</span>
+                        <span className="header-nav-link">ask</span><span>|</span>
+                        <span className="header-nav-link">show</span><span>|</span>
+                        <span className="header-nav-link">jobs</span><span>|</span>
+                        <span className="header-nav-link">submit</span>
                     </span>
                 </nav>
             </div>
             <aside className="header-login-container">
-                <a className="header-login-link" href="#" alt="login">login</a>
+                <span className="header-login-link">login</span>
             </aside>
         </header>
     )

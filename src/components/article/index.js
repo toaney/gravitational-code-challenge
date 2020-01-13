@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import getTimestamp from '../getTimestamp';
 import abridgeUrl from '../abridgeUrl';
-// import './article.scss';
 
 const Article = ({item, index}) => {
     const [ article, setArticle ] = useState({});
@@ -13,7 +12,6 @@ const Article = ({item, index}) => {
         axios
         .get(`https://hacker-news.firebaseio.com/v0/item/${item}.json`)
         .then(res => {
-            console.log(res.data)
             setArticle(res.data)
             setComments(res.data.kids)
         })
@@ -23,7 +21,6 @@ const Article = ({item, index}) => {
     };
 
     useEffect(() => {
-        //run code
         getArticle();
     }, []);
 

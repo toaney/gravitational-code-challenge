@@ -8,6 +8,7 @@ const ArticleList = ({list, start}) => {
                 <Article 
                     item= {item}
                     index={index + start}
+                    key= {index}
                 />
             ))}
         </React.Fragment>

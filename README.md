@@ -5,6 +5,10 @@ The goal of this project is to recreate a light weight version of hackernews usi
 
 In the project directory, you can run:
 
+### `npm install`
+
+Installs all app dependencies. 
+
 ### `npm start`
 
 Runs the app in the development mode.<br />

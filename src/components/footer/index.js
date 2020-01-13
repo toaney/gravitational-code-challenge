@@ -1,5 +1,4 @@
 import React from 'react';
-// import "./footer.scss";
 
 const Footer = () => {
     return (
@@ -17,7 +16,7 @@ const Footer = () => {
                 <span className="footer-link">Contact</span>
             </div>
             <div className="footer-search-container">
-                <label className="footer-search-label" for="footer-search">Search: </label>
+                <label className="footer-search-label" htmlFor="footer-search">Search: </label>
                 <input id="footer-search"></input>
             </div>
         </footer>
