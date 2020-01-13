@@ -12,14 +12,14 @@
 }
 
 .article-index {
-    color: #828282;
+    color: $gray-dark;
     min-width: 22px;
     text-align: right;
     white-space: nowrap;
 }
 
 .article-upvote-arrow {
-    color: #828282;
+    color: $gray-dark;
     line-height: 19px;
     font-size: 9.3px;
     margin-left: 2px;
@@ -37,7 +37,7 @@
 .article-url {
     // overflow: hidden;
     // max-width: 75ch;
-    color: #828282;
+    color: $gray-dark;
     font-size: 10.3px;
     margin-left: 3px;
 }
@@ -56,7 +56,7 @@
 }
 
 .article-stats-item {
-    color: #828282;
+    color: $gray-dark;
     font-size: 9.3px;
     line-height: 12px;
     margin-left: 2px;

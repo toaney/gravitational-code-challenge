@@ -1,5 +1,5 @@
 header {
-    background-color: #ff6600;
+    background-color: $color-primary;
     display: flex;
     justify-content: space-between;
     padding: 2px;
@@ -18,7 +18,7 @@ Link {
 }
 
 nav {
-    @media (max-width: 750px) {
+    @include mobile {
         padding: 2px 5px 5px 5px
     }
 }
@@ -52,7 +52,7 @@ aside {
 
 .header-nav-list {
     display: inline;
-    @media (max-width: 750px){
+    @include mobile {
         display: block;
     }
 }
@@ -64,9 +64,6 @@ aside {
 
 .header-login-link {
     margin-right: 4px;
-    // @media (max-width: 750px) {
-    //     align-self: center;
-    // }
 }
 
 .header-login-container {

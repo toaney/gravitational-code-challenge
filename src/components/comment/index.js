@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import getTimestamp from '../getTimestamp';
-import decodeText from '../decodeText'
-import './comment.scss';
+// import './comment.scss';
 
 const Comment = ( { commentId } ) => {
     const [ commentList, setCommentList ] = useState([]);
@@ -31,7 +30,6 @@ const Comment = ( { commentId } ) => {
 
     return (
         <div style={{"marginLeft": "45px", "marginTop": "10px"}}>
-            {/* <div>{currentComment.text}</div> */}
             <div className="comment-meta-info">
                 <span className="comment-upvote-arrow">&#9650;</span>
                 <span className="comment-by">{currentComment.by} </span>

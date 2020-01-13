@@ -1,12 +1,12 @@
 import React from 'react';
-import './header.scss';
+// import './header.scss';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
     return(
         <header>
             <div className="nav-container">
-                <img className="header-logo" src="hacker_news_logo.gif" alt="hacker news logo" />
+                <img className="header-logo" src={require("../../assets/images/hacker_news_logo.gif")} alt="hacker news image" />
                 <nav>
                     <Link to="/" alt="home"><span className="header-sitename">Hacker News</span></Link>
                     <span className="header-nav-list">

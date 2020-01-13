@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import getTimestamp from '../getTimestamp';
 import abridgeUrl from '../abridgeUrl';
-import './article.scss';
+// import './article.scss';
 
 const Article = ({item, index}) => {
     const [ article, setArticle ] = useState({});
