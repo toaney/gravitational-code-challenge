@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import getTimestamp from '../getTimestamp';
-import abridgeUrl from '../abridgeUrl';
 
 const Article = ({item, index}) => {
     const [ article, setArticle ] = useState({});
     const [ comments, setComments ] = useState([]);
-    const [ displayArticle, setDisplayArticle ] = useState(false);
+    const [ displayArticle, setDisplayArticle ] = useState(false); //state to hide article until content loads
     
+    // API to get article 
     const getArticle = () => {
         axios
         .get(`https://hacker-news.firebaseio.com/v0/item/${item}.json`)
@@ -36,7 +36,7 @@ const Article = ({item, index}) => {
                         <span className="article-upvote-arrow">&#9650;</span>
                         <span>
                             <a href={article.url} className="article-title">{article.title}</a>
-                            <a href={article.url} className="article-url article-link">({abridgeUrl(article.url)})</a>
+                            <a href={article.url} className="article-url article-link">({article.url})</a>
                         </span>
                     </div>
                     <div className="article-stats">

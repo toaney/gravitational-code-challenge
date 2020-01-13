@@ -5,8 +5,9 @@ import getTimestamp from '../getTimestamp';
 const Comment = ( { commentId } ) => {
     const [ commentList, setCommentList ] = useState([]);
     const [ currentComment, setCurrentComment ] = useState({});
-    const [ displayComment, setDisplayComment ] = useState( false )
+    const [ displayComment, setDisplayComment ] = useState( false )// state to hide comment until content loads
 
+    // API to get Comment
     const getComments = ( input ) => {
         axios
         .get(`https://hacker-news.firebaseio.com/v0/item/${ input }.json`)

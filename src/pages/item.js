@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import Comment from '../components/comment';
 import AddComment from '../components/addComment';
-import abridgeUrl from '../components/abridgeUrl';
 
 const getTimestamp = (timestamp) => {
     const currentTime = Math.round((new Date()).getTime() / 1000);
@@ -69,8 +68,10 @@ const Item = () => {
     const [ article, setArticle ] = useState({});
     const [ comments, setComments ] = useState([]);
     
+    // useParams is a custom hook from react-router that gives access to the url id (page number)
     let { id } = useParams();
 
+    // API call to get article on initial page load
     const getArticle = () => {
         axios
         .get(`https://hacker-news.firebaseio.com/v0/item/${ id }.json`)
@@ -94,7 +95,7 @@ const Item = () => {
                 <span className="item-upvote-arrow">&#9650;</span>
                 <span className="item-title-container">
                     <a href={article.url} className="item-title">{article.title}</a>
-                    <a href={article.url} className="item-url">({abridgeUrl(article.url)})</a>
+                    <a href={article.url} className="item-url">({article.url})</a>
                 </span>
             </div>
             <div className="item-stats">
@@ -108,6 +109,7 @@ const Item = () => {
                 <span className="article-stats-item article-link">{article.kids? article.kids.length : 0} comments</span>
             </div>
 
+            {/* add comment textarea tag; this is purely cosmetic and won't add new comments */}
             <AddComment />
 
             <div className="comment-container">
