@@ -1,5 +1,5 @@
 # Hacker News Clone
-The goal of this project is to recreate a light weight version of hackernews using React Hooks
+The goal of this project is to recreate a light weight version of hackernews using React Hooks and the Firebase Hackernews API.
 
 ## Available Scripts
 
