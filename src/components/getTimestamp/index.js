@@ -1,3 +1,4 @@
+// TODO: implement moment.js for human-readable timespans
 const getTimestamp = (timestamp) => {
     const currentTime = Math.round((new Date()).getTime() / 1000);
     let elapsed = currentTime - timestamp;

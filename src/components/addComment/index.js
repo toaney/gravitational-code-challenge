@@ -4,7 +4,6 @@ const AddComment = () => {
     return (
         <section className="add-comment-container">
             <textarea className="add-comment-textarea" rows="7" cols="80"></textarea>
-            <br />
             <button className="add-comment-button" >Add Comment</button>
         </section>
     )

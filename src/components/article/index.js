@@ -9,22 +9,31 @@ const Article = ({item, index}) => {
     const [ displayArticle, setDisplayArticle ] = useState(false); //state to hide article until content loads
     
     // API to get article 
-    const getArticle = () => {
+    const getArticle = (input) => {
         axios
-        .get(`https://hacker-news.firebaseio.com/v0/item/${item}.json`)
+        .get(`https://hacker-news.firebaseio.com/v0/item/${input}.json`)
         .then(res => {
             setArticle(res.data)
+            if (!res.data.kids){
+                return
+            }
             setComments(res.data.kids)
             setDisplayArticle(true)
         })
         .catch((err) => {
-            console.log(err)
+            console.error(err)
         });
     };
 
     useEffect(() => {
-        getArticle();
-    }, []);
+        const abortController = new AbortController();
+
+        getArticle(item);
+
+        return () => {
+            abortController.abort();
+        };
+    }, [item]);
 
 
     return (

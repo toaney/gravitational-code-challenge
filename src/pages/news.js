@@ -8,6 +8,7 @@ const News = () => {
     const [articleList, setArticleList ] = useState([]);
     const [ page, setPage ] = useState(1);
     const [ startIndex, setStartIndex ] = useState(1);
+    const [ nextPage, setNextPage ] = useState("2")
 
     // useParams is a custom hook from react-router that gives access to the url id (page number)
     let { id } = useParams();
@@ -23,6 +24,12 @@ const News = () => {
             } else {
                 setStartIndex(start);
             }
+        }
+        // logic for nextPage used by 'More" link 
+        if (isNaN(currentPage)){
+            return
+        } else {
+            setNextPage(currentPage + 1)
         }
     }
 
@@ -40,7 +47,13 @@ const News = () => {
 
     // get intial HN Topstories on page load
     useEffect(() => {
+        const abortController = new AbortController();
+
         get_assets();
+
+        return () => {
+            abortController.abort();
+        };
     }, []);
 
     // getPage fires to ensure all content updates when page url changes
@@ -68,7 +81,7 @@ const News = () => {
     return(
         <React.Fragment>
             <ArticleList list={articleList} start={startIndex}/>
-            <Link className="more-articles-link" to={`/${isNaN(page)? 2 : page + 1}`}>More</Link>
+            <Link className="more-articles-link" to={`/${nextPage}`}>More</Link>
         </React.Fragment>
     )
 }

@@ -8,6 +8,7 @@ const Header = () => {
                 <img className="header-logo" src={require("../../assets/images/hacker_news_logo.gif")} alt="hacker news logo" />
                 <nav>
                     <Link to="/" alt="home"><span className="header-sitename">Hacker News</span></Link>
+                    {/* header-hav-list is purely cosmetic and links won't work */}
                     <span className="header-nav-list">
                         <span className="header-nav-link">new</span><span>|</span>
                         <span className="header-nav-link">past</span><span>|</span>
@@ -20,6 +21,7 @@ const Header = () => {
                 </nav>
             </div>
             <aside className="header-login-container">
+                {/* header-login-link is purely cosmetic and won't work */}
                 <span className="header-login-link">login</span>
             </aside>
         </header>

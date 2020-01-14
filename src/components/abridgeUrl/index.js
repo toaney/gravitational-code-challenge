@@ -1,7 +1,10 @@
+// abridgeUrl currently only works on .com urls
+// TODO: implement regular expression or an external library for matching top level domains
+
 const abridgeUrl = (url) => {
-    if (url){
-        // abridgeUrl currently only works on .com urls
-        // TODO: implement regular expression or an external library for matching top level domains
+    if (!url){
+        return url
+    } else {
         let sansSubdirectory = url.split(".com");
 
         if(sansSubdirectory[0].indexOf("www.") !== -1){
@@ -15,8 +18,6 @@ const abridgeUrl = (url) => {
         } else {
             return sansSubdirectory[0] + ".com"
         }
-    } else {
-        return url
     }
 }
 

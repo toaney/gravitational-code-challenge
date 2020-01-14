@@ -12,8 +12,10 @@ const Comment = ( { commentId } ) => {
         axios
         .get(`https://hacker-news.firebaseio.com/v0/item/${ input }.json`)
         .then(res => {
-            console.log((res.data))
             setCurrentComment(res.data)
+            if (!res.data.kids){
+                return
+            }
             setCommentList(res.data.kids)
             setDisplayComment( true )
         })
@@ -23,8 +25,14 @@ const Comment = ( { commentId } ) => {
     };
 
     useEffect(() => {
+        const abortController = new AbortController();
+
         getComments(commentId);
-    }, []);
+
+        return () => {
+            abortController.abort();
+        };
+    }, [commentId]);
 
     const nestedComments = (commentList || []).map( (comment, index) => {
         return <Comment key={index} commentId={comment} />
