@@ -44,7 +44,7 @@ const Comment = ( { commentId } ) => {
                 <React.Fragment>
                     <div className="comment-meta-info">
                         <span className="comment-upvote-arrow">&#9650;</span>
-                        <span className="comment-by">{currentComment.by && ""} </span>
+                        <span className="comment-by" data-testid="commentBy">{currentComment.by || ""} </span>
                         <span className="comment-timestamp">{getTimestamp(currentComment.time)}</span>
                     </div>
                     <div className="comment-text" dangerouslySetInnerHTML={{ __html: currentComment.text }}/>
