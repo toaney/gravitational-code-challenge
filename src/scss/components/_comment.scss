@@ -1,0 +1,35 @@
+.comment-upvote-arrow {
+    color: $gray-dark;
+    line-height: 16px;
+    font-size: 9.3px;
+    margin-left: -16px;
+    margin-right: 6px;
+}
+
+.comment-upvote-arrow:hover {
+    cursor: pointer;
+}
+
+.comment-meta-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.comment-by {
+    color: $gray-dark;
+    font-size: 10.3px;
+    margin-right: 5px;
+}
+
+.comment-timestamp {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: $gray-dark;
+    font-size: 10.3px;
+}
+
+.comment-text {
+    font-size: 12px;
+}

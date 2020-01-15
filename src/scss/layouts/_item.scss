@@ -1,0 +1,66 @@
+.item-content {
+    margin-top: 10px;
+}
+
+.item-heading {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.item-upvote-arrow {
+    color: $gray-dark;
+    line-height: 16px;
+    font-size: 9.3px;
+    margin-left: 9px;
+    margin-right: 3px;
+}
+
+.item-upvote-arrow:hover {
+    cursor: pointer;
+}
+
+.item-title-container {
+    margin-left: 3px;
+}
+
+.item-title {
+    font-weight: 400;
+    color: black;
+}
+
+.item-url {
+    color: $gray-dark;
+    font-size: 10.3px;
+    margin-left: 5px;
+}
+
+
+
+
+.item-stats {
+    display: flex;
+    flex-direction: row;
+    margin-left: 22px;
+    margin-bottom: 5px;
+    font-size: 10.3px;
+    line-height: 12px;
+}
+
+.item-stats-item {
+    color: $gray-dark;
+    font-size: 9.3px;
+    line-height: 12px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+
+
+.comment-container {
+    margin-left: -20px;
+}

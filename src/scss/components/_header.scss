@@ -1,0 +1,75 @@
+header {
+    background-color: $color-primary;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    font-family: Verdana, Geneva, sans-serif;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+Link {
+    margin-top: 0px;
+}
+
+nav {
+    @include mobile {
+        padding: 2px 5px 5px 5px
+    }
+}
+
+aside {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-container {
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 18px;
+    width: 18px;
+    border: 1px solid white;
+}
+
+.header-sitename {
+    text-decoration: none;
+    color: black;
+    margin-left: 4px;
+    margin-right: 6px;
+    line-height: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.header-nav-list {
+    display: inline;
+    @include mobile {
+        display: block;
+    }
+}
+
+.header-nav-link {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.header-nav-link:hover {
+    cursor: pointer;
+}
+
+.header-login-link {
+    margin-right: 4px;
+}
+
+.header-login-link:hover {
+    cursor: pointer;
+}

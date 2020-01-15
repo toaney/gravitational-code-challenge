@@ -1,0 +1,18 @@
+// import variables
+@import "./variables/variables.scss";
+
+// import mixins
+@import "./mixins/mixins.scss";
+
+// import page layouts
+@import "./layouts/layout.scss";
+@import "./layouts/item.scss";
+@import "./layouts/news.scss";
+
+// import components
+@import "./components/addComment.scss";
+@import "./components/article.scss";
+@import "./components/comment.scss";
+@import "./components/footer.scss";
+@import "./components/header.scss";
+@import "./components/pipe.scss";

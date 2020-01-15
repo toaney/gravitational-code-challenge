@@ -1,0 +1,33 @@
+footer {
+    border-top: 2px solid $color-primary;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.footer-link-container{
+    color: black;
+    font-size: 10.3px;
+    margin: 15px auto 15px auto;
+}
+
+.footer-link {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.footer-link:hover {
+    cursor: pointer;
+}
+
+.footer-search-label {
+    font-size: 13.3px;
+    color: $gray-dark;
+}
+
+#footer-search {
+    margin-bottom: 15px;
+    font-size: 16px;
+    @include mobile {
+        width: 90%;
+    }
+}
