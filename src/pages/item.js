@@ -5,6 +5,7 @@ import Comment from '../components/comment';
 import AddComment from '../components/addComment';
 import getTimestamp from '../components/getTimestamp';
 import NotFound from '../components/notFound';
+import Pipe from '../components/pipe';
 
 const Item = () => {
     const [ article, setArticle ] = useState({});
@@ -28,18 +29,12 @@ const Item = () => {
         });
     };
     useEffect(() => {
-        const abortController = new AbortController();
-
         const pageNumber = Number(id)
         if(isNaN(pageNumber)){
             setDisplayError(true)
         } else {
             getArticle();
         }
-
-        return () => {
-            abortController.abort();
-        };
     }, []);
 
 
@@ -61,11 +56,11 @@ const Item = () => {
                 <div className="item-stats">
                     <span className="item-stats-item">{article.score} points</span>
                     <span className="item-stats-item item-link">by {article.by}</span>
-                    <span className="item-stats-item item-link">{getTimestamp(article.time)}</span><span className="article-stats-item">|</span>
-                    <span className="item-stats-item item-link">hide</span><span className="article-stats-item">|</span>
-                    <span className="item-stats-item item-link">past</span><span className="article-stats-item">|</span>
-                    <span className="item-stats-item item-link">web</span><span className="article-stats-item">|</span>
-                    <span className="item-stats-item item-link">favorite</span><span className="article-stats-item">|</span>
+                    <span className="item-stats-item item-link">{getTimestamp(article.time)}</span><Pipe />
+                    <span className="item-stats-item item-link">hide</span><Pipe />
+                    <span className="item-stats-item item-link">past</span><Pipe />
+                    <span className="item-stats-item item-link">web</span><Pipe />
+                    <span className="item-stats-item item-link">favorite</span><Pipe />
                     <span className="article-stats-item article-link">{article.kids? article.kids.length : 0} comments</span>
                 </div>
 

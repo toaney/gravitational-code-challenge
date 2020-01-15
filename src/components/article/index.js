@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import getTimestamp from '../getTimestamp';
+import Pipe from '../pipe';
 
 const Article = ({item, index}) => {
     const [ article, setArticle ] = useState({});
@@ -26,13 +27,7 @@ const Article = ({item, index}) => {
     };
 
     useEffect(() => {
-        const abortController = new AbortController();
-
         getArticle(item);
-
-        return () => {
-            abortController.abort();
-        };
     }, [item]);
 
 
@@ -51,8 +46,8 @@ const Article = ({item, index}) => {
                     <div className="article-stats">
                         <span className="article-stats-item">{article.score} points</span>
                         <span className="article-stats-item article-link">by {article.by}</span>
-                        <Link to={`/item/${item}`}><span className="article-stats-item article-link">{getTimestamp(article.time)}</span></Link><span className="article-stats-item">|</span>
-                        <span className="article-stats-item article-link">hide</span><span className="article-stats-item">|</span>
+                        <Link to={`/item/${item}`}><span className="article-stats-item article-link">{getTimestamp(article.time)}</span></Link><Pipe pipeClass={"stats-pipe"}/>
+                        <span className="article-stats-item article-link">hide</span><Pipe pipeClass={"stats-pipe"}/>
                         <Link to={`/item/${item}`}><span className="article-stats-item article-link">{comments? comments.length : 0} comments</span></Link>
                     </div>
                 </React.Fragment>

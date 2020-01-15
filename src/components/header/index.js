@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Pipe from '../pipe';
 
 const Header = () => {
     return(
@@ -10,12 +11,12 @@ const Header = () => {
                     <Link to="/" alt="home"><span className="header-sitename">Hacker News</span></Link>
                     {/* header-hav-list is purely cosmetic and links won't work */}
                     <span className="header-nav-list">
-                        <span className="header-nav-link">new</span><span>|</span>
-                        <span className="header-nav-link">past</span><span>|</span>
-                        <span className="header-nav-link">comments</span><span>|</span>
-                        <span className="header-nav-link">ask</span><span>|</span>
-                        <span className="header-nav-link">show</span><span>|</span>
-                        <span className="header-nav-link">jobs</span><span>|</span>
+                        <span className="header-nav-link">new</span><Pipe pipeClass={"header-pipe"} />
+                        <span className="header-nav-link">past</span><Pipe pipeClass={"header-pipe"} />
+                        <span className="header-nav-link">comments</span><Pipe pipeClass={"header-pipe"} />
+                        <span className="header-nav-link">ask</span><Pipe pipeClass={"header-pipe"} />
+                        <span className="header-nav-link">show</span><Pipe pipeClass={"header-pipe"} />
+                        <span className="header-nav-link">jobs</span><Pipe pipeClass={"header-pipe"} />
                         <span className="header-nav-link">submit</span>
                     </span>
                 </nav>

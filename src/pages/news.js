@@ -50,18 +50,12 @@ const News = () => {
 
     // get intial HN Topstories on page load
     useEffect(() => {
-        const abortController = new AbortController();
-
         const pageNumber = Number(id)
         if(id && isNaN(pageNumber)){
             setDisplayError(true)
         } else {
             get_assets();
         }
-
-        return () => {
-            abortController.abort();
-        };
     }, []);
 
     // getPage fires to ensure all content updates when page url changes

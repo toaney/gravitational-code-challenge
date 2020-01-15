@@ -25,13 +25,7 @@ const Comment = ( { commentId } ) => {
     };
 
     useEffect(() => {
-        const abortController = new AbortController();
-
         getComments(commentId);
-
-        return () => {
-            abortController.abort();
-        };
     }, [commentId]);
 
     const nestedComments = (commentList || []).map( (comment, index) => {
