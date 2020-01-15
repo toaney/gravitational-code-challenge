@@ -3,12 +3,14 @@ import axios from 'axios';
 import Article from '../components/article';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import NotFound from '../components/notFound';
 
 const News = () => {
-    const [articleList, setArticleList ] = useState([]);
+    const [ articleList, setArticleList ] = useState([]);
     const [ page, setPage ] = useState(1);
     const [ startIndex, setStartIndex ] = useState(1);
     const [ nextPage, setNextPage ] = useState("2")
+    const [ displayError, setDisplayError ] = useState(false)
 
     // useParams is a custom hook from react-router that gives access to the url id (page number)
     let { id } = useParams();
@@ -42,6 +44,7 @@ const News = () => {
         })
         .catch((err) => {
             console.log(err)
+            setDisplayError(true)
         });
     };
 
@@ -49,7 +52,12 @@ const News = () => {
     useEffect(() => {
         const abortController = new AbortController();
 
-        get_assets();
+        const pageNumber = Number(id)
+        if(id && isNaN(pageNumber)){
+            setDisplayError(true)
+        } else {
+            get_assets();
+        }
 
         return () => {
             abortController.abort();
@@ -79,10 +87,13 @@ const News = () => {
     }
 
     return(
-        <React.Fragment>
-            <ArticleList list={articleList} start={startIndex}/>
-            <Link className="more-articles-link" to={`/${nextPage}`}>More</Link>
-        </React.Fragment>
+        displayError || !articleList || startIndex > articleList.length?//error handling for if no articleList exists or if there are no more articles to display
+            <NotFound />
+        :
+            <React.Fragment>
+                <ArticleList list={articleList} start={startIndex}/>
+                <Link className="more-articles-link" to={`/${nextPage}`}>More</Link>
+            </React.Fragment>
     )
 }
 
